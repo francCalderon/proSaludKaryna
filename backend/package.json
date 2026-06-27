@@ -1,0 +1,27 @@
+{
+  "name": "cuidado-enfermeria-cms",
+  "private": true,
+  "version": "0.1.0",
+  "description": "CMS Strapi para CuidadoEnfermería",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "^4.15.0",
+    "@strapi/plugin-users-permissions": "4.26.1",
+    "@strapi/strapi": "^4.26.1",
+    "better-sqlite3": "8.6.0",
+    "pg": "8.11.3"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+  },
+  "license": "UNLICENSED"
+}

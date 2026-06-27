@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_infos",
+  "info": {
+    "singularName": "contact-info",
+    "pluralName": "contact-infos",
+    "displayName": "Información de Contacto",
+    "description": "Datos de contacto de la empresa"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30
+    },
+    "whatsapp": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "address": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "businessHours": {
+      "type": "text"
+    },
+    "mapEmbedUrl": {
+      "type": "text",
+      "description": "URL de embed de Google Maps"
+    },
+    "introText": {
+      "type": "text"
+    }
+  }
+}

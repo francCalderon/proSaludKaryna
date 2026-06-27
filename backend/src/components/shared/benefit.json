@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_benefits",
+  "info": {
+    "displayName": "Beneficio",
+    "description": "Beneficio o diferencial de la empresa",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "heart",
+      "maxLength": 50,
+      "description": "Nombre del icono: heart, shield, clock, home, users, star"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

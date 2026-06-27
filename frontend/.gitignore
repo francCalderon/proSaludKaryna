@@ -1,0 +1,36 @@
+# ==========================================
+# GITIGNORE - FRONTEND (Next.js)
+# ==========================================
+
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build y caché
+.next/
+out/
+build/
+.vercel/
+.turbo/
+
+# Variables de entorno con secretos
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Sistema
+.DS_Store
+Thumbs.db

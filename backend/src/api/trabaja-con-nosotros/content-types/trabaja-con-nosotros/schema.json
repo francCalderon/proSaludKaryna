@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "trabaja_con_nosotros",
+  "info": {
+    "singularName": "trabaja-con-nosotros",
+    "pluralName": "trabaja-con-nosotros",
+    "displayName": "Trabaja con Nosotros",
+    "description": "Sección de reclutamiento y postulaciones de personal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "descripcion": {
+      "type": "richtext"
+    },
+    "perfilesBuscados": {
+      "type": "text"
+    },
+    "emailPostulacion": {
+      "type": "email",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "default": true
+    },
+    "seoTitle": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "seoDescription": {
+      "type": "text",
+      "maxLength": 160
+    }
+  }
+}

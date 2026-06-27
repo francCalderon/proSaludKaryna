@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonio",
+    "description": "Testimonios de pacientes y familiares"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "role": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Ej: Hija de paciente, Paciente postoperatorio"
+    },
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5,
+      "default": 5
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

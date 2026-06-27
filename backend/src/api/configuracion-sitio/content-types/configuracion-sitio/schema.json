@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "configuracion_sitio",
+  "info": {
+    "singularName": "configuracion-sitio",
+    "pluralName": "configuracion-sitios",
+    "displayName": "Configuración del Sitio",
+    "description": "Configuración global del sitio: nombre de empresa, slogan y color corporativo"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombreEmpresa": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "default": "Prosalud SpA"
+    },
+    "slogan": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "colorPrimario": {
+      "type": "string",
+      "maxLength": 7
+    }
+  }
+}
