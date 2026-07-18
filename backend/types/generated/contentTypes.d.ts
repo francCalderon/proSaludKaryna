@@ -362,6 +362,50 @@ export interface AdminUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiConfiguracionSitioConfiguracionSitio
+  extends Schema.SingleType {
+  collectionName: 'configuracion_sitio';
+  info: {
+    description: 'Configuraci\u00F3n global del sitio: nombre de empresa, slogan y color corporativo';
+    displayName: 'Configuraci\u00F3n del Sitio';
+    pluralName: 'configuracion-sitios';
+    singularName: 'configuracion-sitio';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    colorPrimario: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 7;
+      }>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::configuracion-sitio.configuracion-sitio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    nombreEmpresa: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'Prosalud SpA'>;
+    slogan: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::configuracion-sitio.configuracion-sitio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactInfoContactInfo extends Schema.SingleType {
   collectionName: 'contact_infos';
   info: {
@@ -441,7 +485,6 @@ export interface ApiContactMessageContactMessage extends Schema.CollectionType {
     status: Attribute.Enumeration<['new', 'read', 'replied', 'archived']> &
       Attribute.DefaultTo<'new'>;
     subject: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 200;
       }>;
@@ -616,6 +659,54 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTrabajaConNosotrosTrabajaConNosotros
+  extends Schema.SingleType {
+  collectionName: 'trabaja_con_nosotros';
+  info: {
+    description: 'Secci\u00F3n de reclutamiento y postulaciones de personal';
+    displayName: 'Trabaja con Nosotros';
+    pluralName: 'trabaja-con-nosotros-pages';
+    singularName: 'trabaja-con-nosotros';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    activo: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trabaja-con-nosotros.trabaja-con-nosotros',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    descripcion: Attribute.RichText;
+    emailPostulacion: Attribute.Email & Attribute.Required;
+    perfilesBuscados: Attribute.Text;
+    publishedAt: Attribute.DateTime;
+    seoDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    seoTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 70;
+      }>;
+    titulo: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::trabaja-con-nosotros.trabaja-con-nosotros',
       'oneToOne',
       'admin::user'
     > &
@@ -1059,11 +1150,13 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::configuracion-sitio.configuracion-sitio': ApiConfiguracionSitioConfiguracionSitio;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::contact-message.contact-message': ApiContactMessageContactMessage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::service.service': ApiServiceService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::trabaja-con-nosotros.trabaja-con-nosotros': ApiTrabajaConNosotrosTrabajaConNosotros;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

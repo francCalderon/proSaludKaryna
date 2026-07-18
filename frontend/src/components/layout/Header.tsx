@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, HeartPulse } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -61,7 +62,14 @@ export function Header() {
             textDecoration: 'none',
           }}
         >
-          <HeartPulse size={28} color="var(--color-primary)" strokeWidth={2} />
+          <Image
+            src="/logo.png"
+            alt="Prosalud SpA"
+            width={750}
+            height={800}
+            style={{ objectFit: 'contain', width: 'auto', height: '40px' }}
+            priority
+          />
           <span
             style={{
               fontFamily: 'var(--font-heading)',

@@ -1,57 +1,44 @@
-// config/database.js
-// Soporta tanto DATABASE_URL (Railway) como variables individuales
-
 'use strict';
 
-const { parse } = require('pg-connection-string');
-
+/**
+ * Configuración de base de datos.
+ *
+ * - LOCAL (desarrollo): SQLite — no requiere ninguna variable de entorno.
+ *   Los datos se guardan en backend/.tmp/data.db automáticamente.
+ *
+ * - PRODUCCIÓN (cPanel): MySQL/MariaDB — requiere DATABASE_CLIENT=mysql
+ *   más las variables DATABASE_HOST, DATABASE_PORT, DATABASE_NAME,
+ *   DATABASE_USERNAME y DATABASE_PASSWORD en el archivo .env del servidor.
+ */
 module.exports = ({ env }) => {
-  // Railway y muchos servicios proveen DATABASE_URL
-  const databaseUrl = env('DATABASE_URL', '');
+  const client = env('DATABASE_CLIENT', 'sqlite');
 
-  if (databaseUrl) {
-    const config = parse(databaseUrl);
+  if (client === 'mysql') {
     return {
       connection: {
-        client: 'postgres',
+        client: 'mysql',
         connection: {
-          host: config.host,
-          port: parseInt(config.port || '5432'),
-          database: config.database,
-          user: config.user,
-          password: config.password,
-          ssl: {
-            rejectUnauthorized: false, // Necesario para Railway/Render
-          },
+          host:     env('DATABASE_HOST', 'localhost'),
+          port:     env.int('DATABASE_PORT', 3306),
+          database: env('DATABASE_NAME', 'prosalud_db'),
+          user:     env('DATABASE_USERNAME', 'root'),
+          password: env('DATABASE_PASSWORD', ''),
+          ssl:      env.bool('DATABASE_SSL', false),
         },
-        pool: {
-          min: 2,
-          max: 10,
-        },
+        pool: { min: 2, max: 10 },
         acquireConnectionTimeout: 60000,
       },
     };
   }
 
-  // Variables de entorno individuales (desarrollo local)
+  // SQLite — desarrollo local (valor por defecto)
   return {
     connection: {
-      client: env('DATABASE_CLIENT', 'postgres'),
+      client: 'sqlite',
       connection: {
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'cuidado_enfermeria'),
-        user: env('DATABASE_USERNAME', 'postgres'),
-        password: env('DATABASE_PASSWORD', ''),
-        ssl: env.bool('DATABASE_SSL', false)
-          ? { rejectUnauthorized: false }
-          : false,
+        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
       },
-      pool: {
-        min: 2,
-        max: 10,
-      },
-      acquireConnectionTimeout: 60000,
+      useNullAsDefault: true,
     },
   };
 };
