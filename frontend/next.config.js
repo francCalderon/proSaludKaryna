@@ -10,22 +10,20 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: process.env.STRAPI_HOST || 'your-strapi-domain.railway.app',
+        hostname: process.env.STRAPI_HOST || 'localhost',
         pathname: '/uploads/**',
       },
     ],
   },
   async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-Frame-Options', value: 'DENY' },
-          { key: 'X-XSS-Protection', value: '1; mode=block' },
-        ],
-      },
-    ];
+    return [{
+      source: '/(.*)',
+      headers: [
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'X-Frame-Options',        value: 'DENY' },
+        { key: 'X-XSS-Protection',       value: '1; mode=block' },
+      ],
+    }];
   },
 };
 
