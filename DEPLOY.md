@@ -132,8 +132,8 @@ NODE_ENV=production npm run build
 ```bash
 cd ~/apps/prosalud/frontend
 
-# Instalar dependencias (sin --production para que estén disponibles runtime)
-npm install
+# Instalar SOLO dependencias de producción (no devDependencies como eslint/typescript)
+npm install --production
 
 # Crear archivo de entorno
 cp .env.example .env.local
@@ -263,7 +263,7 @@ git pull origin main
 cd backend && npm install --production && NODE_ENV=production npm run build
 
 # Si cambiaron dependencias del frontend:
-cd ~/apps/prosalud/frontend && npm install
+cd ~/apps/prosalud/frontend && npm install --production
 
 # Reiniciar las apps
 # cPanel → Setup Node.js App → backend → Restart App
