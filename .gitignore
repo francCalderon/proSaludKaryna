@@ -8,7 +8,14 @@ node_modules/
 .pnp.js
 
 # Builds y cachés
+# .next/ del frontend se incluye en git intencionalmente (build local para cPanel)
 .next/
+!frontend/.next/
+frontend/.next/cache/
+frontend/.next/dev/cache/
+frontend/.next/trace
+frontend/.next/trace-build
+frontend/.next/*.trace
 dist/
 build/
 out/

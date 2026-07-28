@@ -125,10 +125,14 @@ NODE_ENV=production npm run build
 
 ### D. Configurar Next.js
 
+> **IMPORTANTE:** El servidor **NUNCA compila** Next.js. La carpeta `.next/` viene pre-compilada
+> desde el repositorio (compilada localmente en Windows con `npm run build`). El servidor solo
+> instala dependencias de Node y sirve la build ya construida.
+
 ```bash
 cd ~/apps/prosalud/frontend
 
-# Instalar dependencias
+# Instalar dependencias (sin --production para que estén disponibles runtime)
 npm install
 
 # Crear archivo de entorno
@@ -148,8 +152,9 @@ STRAPI_HOST=api.procsalud.cl
 > **Nota:** `STRAPI_API_TOKEN` se genera en el Paso G. Usar un token placeholder la primera vez y actualizar después.
 
 ```bash
-# Compilar Next.js
-NODE_ENV=production npm run build
+# Verificar que la build pre-compilada existe
+ls .next/BUILD_ID   # debe mostrar un hash
+# Si no existe, alguien olvidó hacer commit del .next/ — ver sección 3B.
 ```
 
 ### E. Crear apps en cPanel Setup Node.js App
@@ -218,48 +223,66 @@ Variables de entorno adicionales:
    ```ini
    STRAPI_API_TOKEN=token_copiado_aqui
    ```
-6. Recompilar el frontend y reiniciar:
+6. Actualizar `frontend/.env.local` con el nuevo token y reiniciar el frontend:
    ```bash
-   cd ~/apps/prosalud/frontend
-   NODE_ENV=production npm run build
    # cPanel → Setup Node.js App → frontend → Restart App
+   # (No es necesario recompilar — .next/ ya está en git)
    ```
 
 ---
 
 ## 3. Actualización (git pull)
 
-Proceso estándar de actualización en producción:
+### A. Flujo estándar (cambios de contenido o código)
+
+**Paso 1 — Compilar localmente en Windows** (antes de hacer push):
+
+```bash
+# En tu máquina Windows, dentro de frontend/
+set NODE_ENV=production
+set NEXT_PUBLIC_STRAPI_URL=https://api.procsalud.cl
+set STRAPI_HOST=api.procsalud.cl
+npm run build
+
+# Verificar que compiló correctamente (debe mostrar las páginas generadas)
+# Luego hacer commit del .next/ actualizado:
+git add frontend/.next
+git commit -m "build: production bundle $(date +%Y-%m-%d)"
+git push origin main
+```
+
+**Paso 2 — Actualizar el servidor** (después del push):
 
 ```bash
 cd ~/apps/prosalud
 
-# 1. Obtener cambios
-git pull origin master
+# Obtener cambios (incluye el .next/ pre-compilado)
+git pull origin main
 
-# 2. Actualizar Strapi (si cambiaron dependencias o configs)
-cd backend
-npm install --production
-NODE_ENV=production npm run build
+# Si cambiaron dependencias del backend:
+cd backend && npm install --production && NODE_ENV=production npm run build
 
-# 3. Actualizar Next.js
-cd ../frontend
-npm install
-NODE_ENV=production npm run build
+# Si cambiaron dependencias del frontend:
+cd ~/apps/prosalud/frontend && npm install
 
-# 4. Reiniciar las apps
+# Reiniciar las apps
 # cPanel → Setup Node.js App → backend → Restart App
 # cPanel → Setup Node.js App → frontend → Restart App
 ```
 
-Si solo cambiaron archivos del frontend y no las dependencias:
+> **Por qué no se compila en el servidor:** El hosting compartido tiene límites bajos de `nproc`
+> (máximo de hilos) que impiden que el compilador Rust (SWC/Turbopack) inicialice su thread pool.
+> La build se hace en Windows (sin esa limitación) y se sube pre-compilada.
+
+### B. Si accidentalmente se eliminó `.next/` del repositorio
 
 ```bash
-cd ~/apps/prosalud
-git pull origin master
+# En Windows, compilar y volver a agregar:
 cd frontend
-NODE_ENV=production npm run build
-# Reiniciar desde cPanel
+npm run build
+git add .next
+git commit -m "build: restore production bundle"
+git push origin main
 ```
 
 ---
@@ -332,9 +355,9 @@ NODE_ENV=production node server.js
 ```
 
 Causas más comunes:
-- `STRAPI_API_TOKEN` inválido o expirado
+- `STRAPI_API_TOKEN` inválido o expirado → regenerar en Strapi Admin y actualizar `.env.local`
 - `NEXT_PUBLIC_STRAPI_URL` apuntando a localhost en lugar de `https://api.procsalud.cl`
-- Build desactualizado → ejecutar `npm run build`
+- `.next/` no existe → compilar localmente y hacer push (ver sección 3B)
 
 ### Error "Can't connect to MySQL"
 

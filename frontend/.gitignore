@@ -8,12 +8,20 @@ node_modules/
 .pnp.js
 
 # Lock file — generado por cada plataforma en su propio entorno.
-# El lock de Windows contiene binarios SWC incompatibles con Linux y
-# bloquea el build en cPanel. Cada entorno (local/servidor) genera el suyo.
+# El lock de Windows contiene binarios SWC incompatibles con Linux.
 package-lock.json
 
-# Next.js build y caché
-.next/
+# Build de Next.js — .next/ SE INCLUYE EN GIT intencionalmente.
+# El servidor cPanel no puede compilar Next.js (límite nproc del hosting).
+# El flujo correcto es: build local → commit .next/ → push → servidor git pull.
+# Solo se excluyen los archivos pesados que no se necesitan para servir la app:
+.next/cache/
+.next/dev/cache/
+.next/trace
+.next/trace-build
+.next/*.trace
+
+# Otros outputs
 out/
 build/
 .vercel/

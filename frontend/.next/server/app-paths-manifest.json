@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/contacto/page": "app/contacto/page.js",
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/servicios/[slug]/page": "app/servicios/[slug]/page.js",
+  "/servicios/page": "app/servicios/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/trabaja-con-nosotros/page": "app/trabaja-con-nosotros/page.js"
+}

@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/contact/route": "/api/contact",
+  "/contacto/page": "/contacto",
+  "/page": "/",
+  "/robots.txt/route": "/robots.txt",
+  "/servicios/[slug]/page": "/servicios/[slug]",
+  "/servicios/page": "/servicios",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/trabaja-con-nosotros/page": "/trabaja-con-nosotros"
+}

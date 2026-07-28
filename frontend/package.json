@@ -12,7 +12,7 @@
     "@hookform/resolvers": "^3.3.4",
     "clsx":                "^2.1.0",
     "lucide-react":        "^0.372.0",
-    "next":                "14.2.35",
+    "next":                "16.2.4",
     "react":               "^18.2.0",
     "react-dom":           "^18.2.0",
     "react-hook-form":     "^7.51.0",
@@ -23,7 +23,7 @@
     "@types/react":       "^18",
     "@types/react-dom":   "^18",
     "eslint":             "^8.57.1",
-    "eslint-config-next": "14.2.35",
+    "eslint-config-next": "16.2.4",
     "typescript":         "^5"
   }
 }
