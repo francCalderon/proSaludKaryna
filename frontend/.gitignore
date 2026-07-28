@@ -7,6 +7,11 @@ node_modules/
 .pnp
 .pnp.js
 
+# Lock file — generado por cada plataforma en su propio entorno.
+# El lock de Windows contiene binarios SWC incompatibles con Linux y
+# bloquea el build en cPanel. Cada entorno (local/servidor) genera el suyo.
+package-lock.json
+
 # Next.js build y caché
 .next/
 out/
