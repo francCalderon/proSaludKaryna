@@ -1,0 +1,73 @@
+name: Deploy → Staging
+
+on:
+  push:
+    branches: [staging]
+
+jobs:
+  build-and-deploy:
+    name: Build frontend + Deploy to staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build frontend (Linux — sin límite nproc)
+        working-directory: frontend
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_SITE_URL: https://staging.procsalud.cl
+          NEXT_PUBLIC_STRAPI_URL: ${{ secrets.STAGING_STRAPI_URL }}
+          STRAPI_HOST: ${{ secrets.STAGING_STRAPI_HOST }}
+        run: |
+          npm ci --production=false
+          npm run build
+
+      - name: Deploy al servidor via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd ~/apps/prosalud-staging
+
+            # Actualizar código
+            git fetch origin
+            git reset --hard origin/staging
+
+            # Backend: instalar deps si cambiaron
+            cd backend
+            npm install --production
+
+            # Reiniciar backend (Passenger detecta el cambio)
+            mkdir -p tmp && touch tmp/restart.txt
+
+      - name: Copiar .next/ al servidor
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: 'frontend/.next/'
+          target: '/home/${{ secrets.SSH_USERNAME }}/apps/prosalud-staging/frontend/'
+          strip_components: 1
+
+      - name: Reiniciar frontend
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            mkdir -p ~/apps/prosalud-staging/frontend/tmp
+            touch ~/apps/prosalud-staging/frontend/tmp/restart.txt
