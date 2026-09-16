@@ -10,10 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const d = data || fallbackTrabajaConNosotros;
 
   return {
-    title: d.seoTitle || 'Trabaja con Nosotros | Prosalud SpA',
-    description: d.seoDescription || 'Únete al equipo de Prosalud SpA en Viña del Mar.',
+    title: d.seoTitle || 'Trabaja con Nosotros | Procsalud SpA',
+    description: d.seoDescription || 'Únete al equipo de Procsalud SpA en Viña del Mar.',
     openGraph: {
-      title: d.seoTitle || 'Trabaja con Nosotros | Prosalud SpA',
+      title: d.seoTitle || 'Trabaja con Nosotros | Procsalud SpA',
       description: d.seoDescription || '',
     },
   };
@@ -107,7 +107,7 @@ export default async function TrabajaConNosotrosPage() {
                 ¿Por qué trabajar con nosotros?
               </h2>
               <p style={{ lineHeight: 1.8, marginBottom: '1.25rem', color: 'var(--color-gray-600)' }}>
-                En Prosalud SpA creemos que el cuidado de calidad comienza con un equipo humano
+                En Procsalud SpA creemos que el cuidado de calidad comienza con un equipo humano
                 comprometido. Ofrecemos un ambiente de trabajo donde la vocación de servicio y el
                 profesionalismo son los pilares fundamentales.
               </p>

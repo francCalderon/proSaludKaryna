@@ -25,12 +25,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const data = home || fallbackHomePage;
 
   return {
-    title: data.seoTitle || 'Prosalud SpA | Enfermería y Cuidado Domiciliario',
+    title: data.seoTitle || 'Procsalud SpA | Enfermería y Cuidado Domiciliario',
     description:
       data.seoDescription ||
       'Servicios de enfermería y cuidado domiciliario en Viña del Mar. Personal certificado, atención 24/7.',
     openGraph: {
-      title: data.seoTitle || 'Prosalud SpA',
+      title: data.seoTitle || 'Procsalud SpA',
       description: data.seoDescription || '',
     },
   };

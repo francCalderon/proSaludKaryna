@@ -271,7 +271,7 @@ export function HeroSection({ data }: HeroSectionProps) {
                         fontSize: '0.95rem',
                       }}
                     >
-                      Prosalud SpA
+                      Procsalud SpA
                     </div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--color-primary)' }}>
                       Disponible 24/7

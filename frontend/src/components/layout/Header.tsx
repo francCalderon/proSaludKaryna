@@ -54,7 +54,7 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          aria-label="Prosalud SpA - Ir al inicio"
+          aria-label="Procsalud SpA - Ir al inicio"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -64,7 +64,7 @@ export function Header() {
         >
           <Image
             src="/logo.png"
-            alt="Prosalud SpA"
+            alt="Procsalud SpA"
             width={750}
             height={800}
             style={{ objectFit: 'contain', width: 'auto', height: '40px' }}
@@ -78,7 +78,7 @@ export function Header() {
               color: 'var(--color-gray-900)',
             }}
           >
-            Pro<span style={{ color: 'var(--color-primary)' }}>salud</span>
+            Proc<span style={{ color: 'var(--color-primary)' }}>salud</span>
             <span style={{ color: 'var(--color-gray-400)', fontWeight: 400, fontSize: '0.9rem', marginLeft: '3px' }}>SpA</span>
           </span>
         </Link>

@@ -9,14 +9,14 @@ interface TrabajaConNosotrosProps {
 const defaultData: TrabajaConNosotros = {
   titulo: '¿Quieres formar parte de nuestro equipo?',
   descripcion:
-    'En Prosalud SpA creemos que el cuidado de calidad comienza con un equipo humano comprometido. Si eres Técnico en Enfermería (TENS), cuidador(a) certificado(a) o cuentas con experiencia en atención domiciliaria, te invitamos a formar parte de nuestro equipo.',
+    'En Procsalud SpA creemos que el cuidado de calidad comienza con un equipo humano comprometido. Si eres Técnico en Enfermería (TENS), cuidador(a) certificado(a) o cuentas con experiencia en atención domiciliaria, te invitamos a formar parte de nuestro equipo.',
   perfilesBuscados:
     'Técnico en Enfermería (TENS)\nCuidador(a) certificado(a)\nPersonal con experiencia en atención domiciliaria',
   emailPostulacion: 'seleccion.prosalud@gmail.com',
   activo: true,
-  seoTitle: 'Trabaja con Nosotros | Prosalud SpA',
+  seoTitle: 'Trabaja con Nosotros | Procsalud SpA',
   seoDescription:
-    'Únete al equipo de Prosalud SpA. Buscamos técnicos en enfermería y cuidadores certificados en Viña del Mar.',
+    'Únete al equipo de Procsalud SpA. Buscamos técnicos en enfermería y cuidadores certificados en Viña del Mar.',
 };
 
 export function TrabajaConNosotrosSection({ data }: TrabajaConNosotrosProps) {

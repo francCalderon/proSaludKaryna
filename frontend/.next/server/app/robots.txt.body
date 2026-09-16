@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://procsalud.cl/sitemap.xml
+Sitemap: http://localhost:3000/sitemap.xml

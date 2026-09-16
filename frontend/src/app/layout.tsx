@@ -5,8 +5,8 @@ import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Prosalud SpA | Enfermería y Cuidado Domiciliario',
-    template: '%s | Prosalud SpA',
+    default: 'Procsalud SpA | Enfermería y Cuidado Domiciliario',
+    template: '%s | Procsalud SpA',
   },
   description:
     'Servicios profesionales de enfermería y cuidado domiciliario en Viña del Mar. Personal certificado, atención 24/7. Adultos mayores, postoperatorios, curaciones y más.',
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
     'cuidado postoperatorio',
     'administración medicamentos',
     'cuidado pacientes Viña del Mar',
-    'Prosalud SpA',
+    'Procsalud SpA',
     'toma de muestras sanguíneas',
     'curaciones a domicilio',
   ],
-  authors: [{ name: 'Prosalud SpA' }],
-  creator: 'Prosalud SpA',
+  authors: [{ name: 'Procsalud SpA' }],
+  creator: 'Procsalud SpA',
   openGraph: {
     type: 'website',
     locale: 'es_CL',
     url: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: 'Prosalud SpA',
-    title: 'Prosalud SpA | Enfermería y Cuidado Domiciliario',
+    siteName: 'Procsalud SpA',
+    title: 'Procsalud SpA | Enfermería y Cuidado Domiciliario',
     description:
       'Servicios de enfermería y cuidado domiciliario en Viña del Mar. Personal certificado, atención 24/7.',
   },

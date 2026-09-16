@@ -1,5 +1,5 @@
 // ==========================================
-// DATOS DE FALLBACK — Prosalud SpA
+// DATOS DE FALLBACK — Procsalud SpA
 // Útil para desarrollo inicial o cuando Strapi no responde
 // ==========================================
 
@@ -37,7 +37,7 @@ export const fallbackHomePage: HomePage = {
   finalCtaTitle: '¿Necesita cuidado para un ser querido?',
   finalCtaText:
     'Contáctenos hoy y le responderemos a la brevedad. Evaluamos su caso y le ofrecemos la mejor solución para su familia.',
-  seoTitle: 'Prosalud SpA | Enfermería y Cuidado Domiciliario',
+  seoTitle: 'Procsalud SpA | Enfermería y Cuidado Domiciliario',
   seoDescription:
     'Servicios de enfermería y cuidado domiciliario para adultos mayores y pacientes postoperatorios. Personal certificado en Viña del Mar.',
 };
@@ -53,7 +53,7 @@ export const fallbackServices: Service[] = [
     iconName: 'users',
     featured: true,
     order: 1,
-    seoTitle: 'Cuidado de Paciente en Domicilio — Prosalud SpA',
+    seoTitle: 'Cuidado de Paciente en Domicilio — Procsalud SpA',
     seoDescription: 'Servicio profesional de cuidado domiciliario en Viña del Mar.',
   },
   {
@@ -79,7 +79,7 @@ export const fallbackServices: Service[] = [
     iconName: 'bandage',
     featured: true,
     order: 3,
-    seoTitle: 'Curaciones a Domicilio — Prosalud SpA',
+    seoTitle: 'Curaciones a Domicilio — Procsalud SpA',
     seoDescription: 'Curación de heridas simples y avanzadas por personal certificado.',
   },
   {
@@ -118,7 +118,7 @@ export const fallbackServices: Service[] = [
     iconName: 'accessibility',
     featured: false,
     order: 6,
-    seoTitle: 'Postura de Aros a Domicilio — Prosalud SpA',
+    seoTitle: 'Postura de Aros a Domicilio — Procsalud SpA',
     seoDescription: 'Postura de aros con técnica aséptica por técnicos certificados.',
   },
 ];
@@ -128,7 +128,7 @@ export const fallbackTestimonials: Testimonial[] = [
     name: 'María González',
     role: 'Hija de paciente',
     quote:
-      'El equipo de Prosalud SpA ha sido un apoyo incondicional para mi madre. Su profesionalismo y calidez nos dieron tranquilidad en un momento muy difícil. Los recomiendo con total confianza.',
+      'El equipo de Procsalud SpA ha sido un apoyo incondicional para mi madre. Su profesionalismo y calidez nos dieron tranquilidad en un momento muy difícil. Los recomiendo con total confianza.',
     rating: 5,
     active: true,
   },
@@ -164,12 +164,12 @@ export const fallbackContactInfo: ContactInfo = {
 export const fallbackTrabajaConNosotros: TrabajaConNosotros = {
   titulo: '¿Quieres formar parte de nuestro equipo?',
   descripcion:
-    'En Prosalud SpA creemos que el cuidado de calidad comienza con un equipo humano comprometido. Si eres Técnico en Enfermería (TENS), cuidador(a) certificado(a) o cuentas con experiencia en atención domiciliaria, te invitamos a formar parte de nuestro equipo. Buscamos personas responsables, empáticas y con vocación de servicio para brindar atención profesional y cercana a nuestros pacientes.',
+    'En Procsalud SpA creemos que el cuidado de calidad comienza con un equipo humano comprometido. Si eres Técnico en Enfermería (TENS), cuidador(a) certificado(a) o cuentas con experiencia en atención domiciliaria, te invitamos a formar parte de nuestro equipo. Buscamos personas responsables, empáticas y con vocación de servicio para brindar atención profesional y cercana a nuestros pacientes.',
   perfilesBuscados:
     'Técnico en Enfermería (TENS)\nCuidador(a) certificado(a)\nPersonal con experiencia en atención domiciliaria',
   emailPostulacion: 'seleccion.prosalud@gmail.com',
   activo: true,
-  seoTitle: 'Trabaja con Nosotros | Prosalud SpA',
+  seoTitle: 'Trabaja con Nosotros | Procsalud SpA',
   seoDescription:
-    'Únete al equipo de Prosalud SpA. Buscamos técnicos en enfermería y cuidadores certificados en Viña del Mar.',
+    'Únete al equipo de Procsalud SpA. Buscamos técnicos en enfermería y cuidadores certificados en Viña del Mar.',
 };

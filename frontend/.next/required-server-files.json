@@ -72,7 +72,7 @@
         },
         {
           "protocol": "https",
-          "hostname": "api.procsalud.cl",
+          "hostname": "localhost",
           "pathname": "/uploads/**"
         }
       ],

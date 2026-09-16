@@ -43,7 +43,7 @@ export function Footer() {
                   color: 'var(--color-white)',
                 }}
               >
-                Pro<span style={{ color: 'var(--color-primary)' }}>salud</span>
+                Proc<span style={{ color: 'var(--color-primary)' }}>salud</span>
                 <span style={{ color: 'var(--color-gray-500)', fontWeight: 400, fontSize: '0.85rem', marginLeft: '3px' }}>SpA</span>
               </span>
             </Link>
@@ -184,7 +184,7 @@ export function Footer() {
           }}
         >
           <p style={{ fontSize: '0.85rem', color: 'var(--color-gray-500)' }}>
-            © {currentYear} Prosalud SpA. Todos los derechos reservados.
+            © {currentYear} Procsalud SpA. Todos los derechos reservados.
           </p>
           <p style={{ fontSize: '0.85rem', color: 'var(--color-gray-500)' }}>
             Viña del Mar, Chile

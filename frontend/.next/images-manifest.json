@@ -50,7 +50,7 @@
       },
       {
         "protocol": "https",
-        "hostname": "^(?:^(?:api\\.procsalud\\.cl)$)$",
+        "hostname": "^(?:^(?:localhost)$)$",
         "pathname": "^(?:\\/uploads(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)|$))$"
       }
     ],

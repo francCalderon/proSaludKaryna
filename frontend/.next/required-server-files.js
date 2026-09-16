@@ -72,7 +72,7 @@ self.__SERVER_FILES_MANIFEST={
         },
         {
           "protocol": "https",
-          "hostname": "api.procsalud.cl",
+          "hostname": "localhost",
           "pathname": "/uploads/**"
         }
       ],
